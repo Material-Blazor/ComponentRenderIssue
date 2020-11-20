@@ -1,0 +1,22 @@
+﻿<MBDatePicker @bind-Value="CurrentDateTime"
+              style="margin: 0.5em;" />
+<br/>
+<MBSelect Items="SortDirectionItems"
+          @bind-Value="SortDirection"
+          style="margin: 0.5em;" />
+
+@code
+    {
+
+    private DateTime CurrentDateTime { get; set; } = DateTime.Now;
+    private MBListElement<int>[] SortDirectionItems { get; set; } = new MBListElement<int>[]
+        {
+                new MBListElement<int>{
+                    SelectedValue = 0,
+                    Label = "Ascending"},
+                new MBListElement<int>{
+                    SelectedValue = 1,
+                    Label = "Descending"},
+                        };
+    private int SortDirection { get; set; }
+}

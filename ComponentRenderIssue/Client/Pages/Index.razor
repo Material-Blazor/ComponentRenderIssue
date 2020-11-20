@@ -1,0 +1,45 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+<br />
+<MBButton Label="Show Customization dialog"
+          ButtonStyle="MBButtonStyle.ContainedRaised"
+          @onclick="@ShowCustomizationAsync" />
+
+<MBDialog Title="Customize with incorrect rendering in SimpleComponent"
+          @ref="CustomizationDialogReference">
+    <Body>
+        <SimpleComponent />
+        <br/>
+        <MBDatePicker @bind-Value="CurrentDateTime"
+                      style="margin: 0.5em;" />
+        <br />
+        <MBSelect Items="SortDirectionItems"
+                  @bind-Value="SortDirection"
+                  style="margin: 0.5em;" />
+        <br />
+    </Body>
+</MBDialog>
+
+@code
+    {
+
+    private MBDialog CustomizationDialogReference { get; set; }
+    private DateTime CurrentDateTime { get; set; } = DateTime.Now;
+    private MBListElement<int>[] SortDirectionItems { get; set; } = new MBListElement<int>[]
+        {
+                new MBListElement<int>{
+                    SelectedValue = 0,
+                    Label = "Ascending"},
+                new MBListElement<int>{
+                    SelectedValue = 1,
+                    Label = "Descending"},
+                        };
+    private int SortDirection { get; set; }
+
+    private async Task ShowCustomizationAsync()
+    {
+        await CustomizationDialogReference.ShowAsync();
+    }
+
+}
