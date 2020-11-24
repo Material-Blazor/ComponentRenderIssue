@@ -20,11 +20,16 @@
                   Disabled="DPDisabled"
                   style="margin: 0.5em;" />
         <br />
+        <br />
         <MBButton Label="Toggle Disable on MBDatePicker & MBSelect"
                   ButtonStyle="MBButtonStyle.ContainedRaised"
                   @onclick="@ToggleDisabled" />
         <br />
+        <br />
         Disabled is currently @DPDisabled
+        <br />
+        <br />
+        <MultiSelectListComponent ItemArray="@Items"/>
     </Body>
 </MBDialog>
 
@@ -43,6 +48,12 @@
                                 };
     private int SortDirection { get; set; }
 
+    MultiSelectListComponent.MultiSelectListElement[] Items = new MultiSelectListComponent.MultiSelectListElement[]
+        {
+        new MultiSelectListComponent.MultiSelectListElement { SelectedValue = "brit-short", Label = "British Shorthair" },
+        new MultiSelectListComponent.MultiSelectListElement { SelectedValue = "russ-blue", Label = "Russian Blue", IsSelected=true },
+        new MultiSelectListComponent.MultiSelectListElement { SelectedValue = "ice-invis", Label = "Icelandic Invisible", IsSelected=true }
+        };
     private async Task ShowCustomizationAsync()
     {
         await CustomizationDialogReference.ShowAsync();
