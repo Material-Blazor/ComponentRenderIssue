@@ -17,12 +17,13 @@
         <br />
         <MBSelect Items="SortDirectionItems"
                   @bind-Value="SortDirection"
+                  Disabled="DPDisabled"
                   style="margin: 0.5em;" />
         <br />
-        <MBButton Label="Toggle Disable on MBDatePicker"
+        <MBButton Label="Toggle Disable on MBDatePicker & MBSelect"
                   ButtonStyle="MBButtonStyle.ContainedRaised"
                   @onclick="@ToggleDisabled" />
-        <br/>
+        <br />
         Disabled is currently @DPDisabled
     </Body>
 </MBDialog>
@@ -39,7 +40,7 @@
                 new MBListElement<int>{
                     SelectedValue = 1,
                     Label = "Descending"},
-                            };
+                                };
     private int SortDirection { get; set; }
 
     private async Task ShowCustomizationAsync()
