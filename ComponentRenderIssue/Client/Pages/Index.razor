@@ -9,39 +9,29 @@
 <MBDialog Title="Customize with incorrect rendering in SimpleComponent"
           EscapeKeyAction=""
           ScrimClickAction=""
+          style="width: 70%;"
           @ref="CustomizationDialogReference">
     <Body>
-        <MBSlidingTabBar @bind-Value="@tabIndex"
-                         Items="@tabIdentifiers"
-                         Context="item">
-
-            <Label>
-                Tab @item
-            </Label>
-            <Content>
-                <SimpleComponent />
-                <br />
-                <MBDatePicker @bind-Value="CurrentDateTime"
-                              Disabled="DPDisabled"
-                              style="margin: 0.5em;" />
-                <br />
-                <MBSelect Items="SortDirectionItems"
-                          @bind-Value="SortDirection"
-                          Disabled="DPDisabled"
-                          style="margin: 0.5em;" />
-                <br />
-                <br />
-                <MBButton Label="Toggle Disable on MBDatePicker & MBSelect"
-                          ButtonStyle="MBButtonStyle.ContainedRaised"
-                          @onclick="@ToggleDisabled" />
-                <br />
-                <br />
-                Disabled is currently @DPDisabled
-                <br />
-                <br />
-                <MultiSelectListComponent ItemArray="@Items" />
-            </Content>
-        </MBSlidingTabBar>
+        <SimpleComponent />
+        <br />
+        <MBDatePicker @bind-Value="CurrentDateTime"
+                      Disabled="DPDisabled"
+                      style="margin: 0.5em;" />
+        <MBSelect Items="SortDirectionItems"
+                  @bind-Value="SortDirection"
+                  Disabled="DPDisabled"
+                  style="margin: 0.5em;" />
+        <br />
+        <br />
+        <MBButton Label="Toggle Disable on MBDatePicker & MBSelect"
+                  ButtonStyle="MBButtonStyle.ContainedRaised"
+                  @onclick="@ToggleDisabled" />
+        <br />
+        <br />
+        Disabled is currently @DPDisabled
+        <br />
+        <br />
+        <MultiSelectListComponent ItemArray="@Items" />
     </Body>
 </MBDialog>
 
@@ -78,17 +68,15 @@
                 new MBListElement<int>{
                     SelectedValue = 8,
                     Label = "Descending"},
-                                    };
+                                        };
     private int SortDirection { get; set; }
-    private int[] tabIdentifiers { get; set; } = { 0, 1 };
-    private int tabIndex { get; set; } = 0;
 
     MultiSelectListComponent.MultiSelectListElement[] Items = new MultiSelectListComponent.MultiSelectListElement[]
     {
         new MultiSelectListComponent.MultiSelectListElement { Label = "British Shorthair" },
         new MultiSelectListComponent.MultiSelectListElement { Label = "Russian Blue", IsSelected=true },
         new MultiSelectListComponent.MultiSelectListElement { Label = "Icelandic Invisible", IsSelected=true }
-        };
+            };
     private async Task ShowCustomizationAsync()
     {
         await CustomizationDialogReference.ShowAsync();
