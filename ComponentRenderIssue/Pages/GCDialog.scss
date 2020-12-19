@@ -1,0 +1,5 @@
+﻿// Override of Material Design to allow for dialogs wider than the default maximum of 560 pixels
+.mdc-dialog .mdc-dialog__surface {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 32px);
+}

@@ -1,0 +1,38 @@
+@namespace ComponentRenderIssues
+
+<MBDialog @ref="@pDialogReference"
+          style="@pAdditionalStyles"
+          Title="@pDialogTitle">
+    <Body>
+        @ChildContent
+    </Body>
+    <Buttons>
+        @if ((pButtonSelection == eButtonStyles.OK) || (pButtonSelection == eButtonStyles.OKCancel))
+        {
+            <GCButton pButtonId="@GCButton.m_StdId_OK"
+                      pButtonText="OK"
+                      pAdditionalStyles="margin: 0.25em;"
+                      pOnClickAsync="OnDialogActionAsync" />
+        }
+
+        @if (pCustomButtons != null)
+        {
+            foreach (KeyValuePair<string, string> custButt in pCustomButtons)
+            {
+                <GCButton pButtonId="@custButt.Key"
+                          pButtonText="@custButt.Value"
+                          pAdditionalStyles="margin: 0.25em;"
+                          pOnClickAsync="OnDialogActionAsync" />
+            }
+        }
+
+        @if (pButtonSelection == eButtonStyles.OKCancel)
+        {
+            <GCButton pButtonId="@GCButton.m_StdId_Cancel"
+                      pButtonText="Cancel"
+                      pAdditionalStyles="margin: 0.25em;"
+                      pOnClickAsync="OnDialogActionAsync" />
+        }
+    </Buttons>
+</MBDialog>
+

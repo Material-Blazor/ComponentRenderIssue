@@ -1,0 +1,36 @@
+@namespace ComponentRenderIssues
+
+<GCDialog pDialogTitle="Customize"
+          pOnDialogActionAsync="OnDialogComplete"
+          @ref="pCustomizationDialogReference">
+
+    <style>
+        .STB1 .mdc-tab {
+            min-width: 50% !important;
+            max-width: 50% !important;
+        }
+    </style>
+
+    <div class="STB1">
+        <GCSlidingTabBar Context="pItem"
+                            pItems="pTabItemsModeORM"
+                            @bind-pTabIndex="pTabIndexModeORM">
+            <pLabel>@pItem</pLabel>
+            <pContent>
+                <p></p>
+                @{ var t = pTabIndexModeORM.ToString();}
+                <div @key="@t">
+                    @if (pTabIndexModeORM == 0)
+                    {
+                        <Customization_ORM />
+                    }
+                    @if (pTabIndexModeORM == 1)
+                    {
+                        <Customization_DB_Type />
+                    }
+                </div>
+            </pContent>
+        </GCSlidingTabBar>
+    </div>
+
+</GCDialog>

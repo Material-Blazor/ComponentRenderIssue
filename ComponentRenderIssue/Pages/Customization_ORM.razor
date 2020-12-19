@@ -1,0 +1,29 @@
+@namespace ComponentRenderIssues
+
+<table class="@GCTypography.Subtitle2 opti-table-grid">
+    <tr>
+        <th>
+            Filter by schedule date:
+        </th>
+        <td align="left">
+            <GCDatePicker @bind-pDateTimeValue="pORM_SelectedDate"
+                          pLabel="Selected date"
+                          pAdditionalStyles="margin: 0.5em;" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Filter by location:
+        </th>
+
+        <td>
+            <GCSelect pAdditionalStyles="margin: 0.5em;"
+                      @bind-pValue="@pORM_SelectedSuiteGroup"
+                      pGCItems="@pLocationList"
+                      pGCItemValidation="@eItemValidation.NoSelection"
+                      pLabel="Selected location"
+                      pGCSelectInputStyle="eSelectInputStyle.Outlined"
+                      pGCTextAlignStyle="eTextAlignStyle.Left" />
+        </td>
+    </tr>
+</table>

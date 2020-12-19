@@ -1,4 +1,6 @@
-﻿<MBDatePicker @bind-Value="CurrentDateTime"
+﻿@namespace ComponentRenderIssues
+
+<MBDatePicker @bind-Value="CurrentDateTime"
               style="margin: 0.5em;" />
 <MBSelect Items="SortDirectionItems"
           @bind-Value="SortDirection"
@@ -16,6 +18,6 @@
                 new MBListElement<int>{
                     SelectedValue = 1,
                     Label = "Descending"},
-                        };
+                            };
     private int SortDirection { get; set; }
 }

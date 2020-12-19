@@ -1,14 +1,20 @@
 ﻿@page "/"
+@namespace ComponentRenderIssues
 
 <h1>Hello, world!</h1>
 <br />
-<MBButton Label="Show Customization Dialog"
+<MBButton Label="Show Customization Dialog #1"
           ButtonStyle="MBButtonStyle.ContainedRaised"
           @onclick="@ShowCustomizationAsync" />
 
+<br />
+<br />
+
+<MBButton Label="Show Customization Dialog #2"
+          ButtonStyle="MBButtonStyle.ContainedRaised"
+          @onclick="@ShowCustomization2Async" />
+
 <MBDialog Title="Customize with incorrect rendering in SimpleComponent"
-          EscapeKeyAction=""
-          ScrimClickAction=""
           style="width: 70%;"
           @ref="CustomizationDialogReference">
     <Body>
@@ -35,9 +41,12 @@
     </Body>
 </MBDialog>
 
+<CustomizationDialog @ref="CustomizationDialogReference2" />
+
 @code {
     private bool DPDisabled { get; set; } = false;
     private MBDialog CustomizationDialogReference { get; set; }
+    private CustomizationDialog CustomizationDialogReference2 { get; set; }
     private DateTime CurrentDateTime { get; set; } = DateTime.Now;
     private MBListElement<int>[] SortDirectionItems { get; set; } = new MBListElement<int>[]
         {
@@ -68,7 +77,7 @@
                 new MBListElement<int>{
                     SelectedValue = 8,
                     Label = "Descending"},
-                                        };
+                                                        };
     private int SortDirection { get; set; }
 
     MultiSelectListComponent.MultiSelectListElement[] Items = new MultiSelectListComponent.MultiSelectListElement[]
@@ -76,10 +85,15 @@
         new MultiSelectListComponent.MultiSelectListElement { Label = "British Shorthair" },
         new MultiSelectListComponent.MultiSelectListElement { Label = "Russian Blue", IsSelected=true },
         new MultiSelectListComponent.MultiSelectListElement { Label = "Icelandic Invisible", IsSelected=true }
-            };
+                            };
     private async Task ShowCustomizationAsync()
     {
         await CustomizationDialogReference.ShowAsync();
+    }
+
+    private async Task ShowCustomization2Async()
+    {
+        await CustomizationDialogReference2.OpenDialogAsync();
     }
 
     private void ToggleDisabled()

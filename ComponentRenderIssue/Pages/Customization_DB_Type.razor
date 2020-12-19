@@ -1,0 +1,19 @@
+@namespace ComponentRenderIssues
+
+<table class="@GCTypography.Subtitle2 opti-table-grid">
+    <tr>
+        <th>
+            Dashboard type:
+        </th>
+
+        <td>
+            <GCSelect pAdditionalStyles="margin: 0.5em;"
+                      @bind-pValue="@pDashboardType"
+                      pGCItems="@pDashboardTypeItems"
+                      pGCItemValidation="@eItemValidation.Exception"
+                      pLabel="Selected type"
+                      pGCSelectInputStyle="eSelectInputStyle.Outlined"
+                      pGCTextAlignStyle="eTextAlignStyle.Left" />
+        </td>
+    </tr>
+</table>
