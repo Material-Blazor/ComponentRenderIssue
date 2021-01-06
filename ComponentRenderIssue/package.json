@@ -1,0 +1,11 @@
+{
+  "name": "optimiser",
+  "version": "3.0.0",
+  "scripts": {
+    "build-min-css": "dart-sass --update --no-color --unicode --style=compressed --load-path=node_modules --no-source-map Styles/site.scss wwwroot/css/site.min.css"
+  },
+  "devDependencies": {
+    "dart-sass": "^1.25.0",
+    "material-components-web": "9.0.0"
+  }
+}

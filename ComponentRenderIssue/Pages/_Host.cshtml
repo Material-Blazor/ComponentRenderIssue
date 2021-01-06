@@ -12,13 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ComponentRenderIssue</title>
     <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
     <link href="ComponentRenderIssue.styles.css" rel="stylesheet" />
-    <link href="_content/material.blazor/bundled.min.css" rel="stylesheet" />
+    @*<link href="https://unpkg.com/material-components-web@9.0.0/dist/material-components-web.css" rel="stylesheet" />*@
+    <link href="_content/material.blazor/materialblazor.min.css" rel="stylesheet" />
+    <link href="css/site.min.css" rel="stylesheet" />
 </head>
 <body>
-    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    <component type="typeof(App)" render-mode="Server" />
 
     <div id="blazor-error-ui">
         <environment include="Staging,Production">
@@ -31,7 +31,7 @@
         <a class="dismiss">🗙</a>
     </div>
 
-    <script src="_content/material.blazor/bundled.min.js"></script>
+    <script src="_content/material.blazor/materialblazor.min.js"></script>
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>

@@ -1,11 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Material.Blazor" Version="1.1.4" />
+    <Content Include="Styles\site.scss" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Material.Blazor\Material.Blazor\Material.Blazor.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InputStaticAssetsStyles Include="styles\**\*.scss;pages\**\*.scss" />
+    <OutputStaticAssetsStyles Include="wwwroot\css\site.min.css" />
+  </ItemGroup>
+
+  <Target Name="BuildStyles" Inputs="@(InputStaticAssetsStyles)" Outputs="@(OutputStaticAssetsStyles)" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo ***** npm install" />
+    <Exec Command="npm install" />
+
+    <Exec Command="echo ***** npm run build-min-css" />
+    <Exec Command="npm run build-min-css" />
+
+  </Target>
 
 </Project>

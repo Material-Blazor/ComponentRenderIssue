@@ -9,12 +9,12 @@ namespace ComponentRenderIssues
 #nullable enable annotations
     public class GCConverters<TItem>
     {
-        public List<MBListElement<TItem>> ConvertToListElement(IEnumerable<GCListElement<TItem>>? p_GCListElementList)
+        public List<MBSelectElement<TItem>> ConvertToListElement(IEnumerable<GCListElement<TItem>>? p_GCListElementList)
         {
-            var convertedItems = new List<MBListElement<TItem>>();
+            var convertedItems = new List<MBSelectElement<TItem>>();
             foreach (var item in p_GCListElementList)
             {
-                var newItem = new MBListElement<TItem>
+                var newItem = new MBSelectElement<TItem>
                 {
                     Disabled = item.pDisabled,
                     Label = item.pLabel,

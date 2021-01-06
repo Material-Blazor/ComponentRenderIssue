@@ -10,12 +10,12 @@
     {
 
     private DateTime CurrentDateTime { get; set; } = DateTime.Now;
-    private MBListElement<int>[] SortDirectionItems { get; set; } = new MBListElement<int>[]
+    private MBSelectElement<int>[] SortDirectionItems { get; set; } = new MBSelectElement<int>[]
         {
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 0,
                     Label = "Ascending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 1,
                     Label = "Descending"},
                             };

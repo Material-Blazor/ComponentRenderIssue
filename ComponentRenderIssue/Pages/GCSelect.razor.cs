@@ -21,7 +21,7 @@ namespace ComponentRenderIssues
         [Parameter] public EventCallback<TItem> pValueChanged { get; set; }
         [Parameter] public Expression<Func<TItem>> pValueExpression { get; set; }
 
-        private List<MBListElement<TItem>> pItems { get; set; }
+        private List<MBSelectElement<TItem>> pItems { get; set; }
         private MBItemValidation? pItemValidation { get; set; } = null;
         private MBSelectInputStyle? pSelectInputStyle { get; set; } = null;
         private MBTextAlignStyle? pTextAlignStyle { get; set; } = null;

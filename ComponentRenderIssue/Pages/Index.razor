@@ -48,34 +48,37 @@
     private MBDialog CustomizationDialogReference { get; set; }
     private CustomizationDialog CustomizationDialogReference2 { get; set; }
     private DateTime CurrentDateTime { get; set; } = DateTime.Now;
-    private MBListElement<int>[] SortDirectionItems { get; set; } = new MBListElement<int>[]
+    private MBSelectElement<int>[] SortDirectionItems { get; set; } = new MBSelectElement<int>[]
         {
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 0,
                     Label = "Ascending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 1,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 2,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 3,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 4,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 5,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 6,
                     Label = "Descending"},
-                new MBListElement<int>{
+                new MBSelectElement<int>{
                     SelectedValue = 7,
-                    Label = "Descending"},
-                new MBListElement<int>{
+                    Label = "DescendingEvenFurtherThanWhatSeemsRequired"},
+                new MBSelectElement<int>{
                     SelectedValue = 8,
+                    Label = "Descending"},
+                new MBSelectElement<int>{
+                    SelectedValue = 9,
                     Label = "Descending"},
                                                         };
     private int SortDirection { get; set; }
