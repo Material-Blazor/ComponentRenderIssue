@@ -1,9 +1,11 @@
 ﻿@namespace ComponentRenderIssues
 
 <MBDatePicker @bind-Value="CurrentDateTime"
+              MenuSurfacePositioning="@MBMenuSurfacePositioning.Fixed"
               style="margin: 0.5em;" />
 <MBSelect Items="SortDirectionItems"
           @bind-Value="SortDirection"
+          MenuSurfacePositioning="@MBMenuSurfacePositioning.Fixed"
           style="margin: 0.5em;" />
 
 @code

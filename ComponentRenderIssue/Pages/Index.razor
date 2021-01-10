@@ -21,11 +21,13 @@
         <SimpleComponent />
         <br />
         <MBDatePicker @bind-Value="CurrentDateTime"
+                      MenuSurfacePositioning="@MBMenuSurfacePositioning.Fixed"
                       Disabled="DPDisabled"
                       style="margin: 0.5em;" />
         <MBSelect Items="SortDirectionItems"
                   @bind-Value="SortDirection"
                   Disabled="DPDisabled"
+                  MenuSurfacePositioning="@MBMenuSurfacePositioning.Fixed"
                   style="margin: 0.5em;" />
         <br />
         <br />
