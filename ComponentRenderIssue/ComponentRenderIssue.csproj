@@ -8,10 +8,6 @@
     <Content Include="Styles\site.scss" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Material.Blazor\Material.Blazor\Material.Blazor.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
@@ -19,6 +15,10 @@
   <ItemGroup>
     <InputStaticAssetsStyles Include="styles\**\*.scss;pages\**\*.scss" />
     <OutputStaticAssetsStyles Include="wwwroot\css\site.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Material.Blazor" Version="2.0.0-preview.1" />
   </ItemGroup>
 
   <Target Name="BuildStyles" Inputs="@(InputStaticAssetsStyles)" Outputs="@(OutputStaticAssetsStyles)" BeforeTargets="PreBuildEvent">
