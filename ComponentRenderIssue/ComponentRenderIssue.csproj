@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Material.Blazor" Version="2.0.0-preview.1" />
+    <ProjectReference Include="..\..\Material.Blazor\Material.Blazor\Material.Blazor.csproj" />
   </ItemGroup>
 
   <Target Name="BuildStyles" Inputs="@(InputStaticAssetsStyles)" Outputs="@(OutputStaticAssetsStyles)" BeforeTargets="PreBuildEvent">
