@@ -33,8 +33,9 @@ namespace ComponentRenderIssue
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddMBServices(
-                toastServiceConfiguration: new MBToastServiceConfiguration()
+            services.AddMBServices(options =>
+            {
+                options.ToastServiceConfiguration = new MBToastServiceConfiguration()
                 {
                     InfoDefaultHeading = "Info",
                     SuccessDefaultHeading = "Success",
@@ -42,15 +43,10 @@ namespace ComponentRenderIssue
                     ErrorDefaultHeading = "Error",
                     Timeout = 3000,
                     MaxToastsShowing = 3,
-                    CloseMethod = MBToastCloseMethod.TimeoutAndCloseButton,
+                    CloseMethod = MBNotifierCloseMethod.TimeoutAndDismissButton,
                     Position = MBToastPosition.TopRight
-                },
-                animatedNavigationManagerServiceConfiguration: new MBAnimatedNavigationManagerServiceConfiguration()
-                {
-                    ApplyAnimation = true,
-                    AnimationTime = 300
-                }
-                );
+                };
+            });
 
         }
 
